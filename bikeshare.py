@@ -19,7 +19,7 @@ def get_filters():
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 
     while True:
-        city = input("About which city do you need information? Please type New York City, Chicago or Washington.\n")
+        city = input("Which city do you need information about? Please type New York City, Chicago or Washington.\n")
         city = city.lower()
         if city in ('chicago', 'new york city'):
             print("Your choice is ", city, "\n")
@@ -143,9 +143,9 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    total_travel_time = df['Trip Duration'].sum() /86400
+    total_travel_time = df['Trip Duration'].sum() /3600
     total_travel_time = str(round(total_travel_time, 2))
-    print("The total travel time: ", total_travel_time, " days \n")
+    print("The total travel time: ", total_travel_time, " hours \n")
 
     # TO DO: display mean travel time
     mean_travel_time = df['Trip Duration'].mean() /60
@@ -176,19 +176,19 @@ def user_stats(df):
 
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
-      earliest_year = df['Birth Year'].min()
+      earliest_year = int(df['Birth Year'].min())
       print('Earliest Birth Year: ', earliest_year, "\n")
     except KeyError:
       print("Earliest Birth Year: N/A for this city. \n")
 
     try:
-      most_recent_year = df['Birth Year'].max()
+      most_recent_year = int(df['Birth Year'].max())
       print('Most Recent Birth Year:', most_recent_year, "\n")
     except KeyError:
       print("Most Recent Birth Year: N/A for this city. \n")
 
     try:
-      most_common_year = df['Birth Year'].value_counts().idxmax()
+      most_common_year = int(df['Birth Year'].value_counts().idxmax())
       print('Most Common Birth Year:', most_common_year, "\n")
     except KeyError:
       print("Most Common Birth Year: N/A for this city. \n")
