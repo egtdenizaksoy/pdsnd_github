@@ -8,7 +8,6 @@ Explore US Bikeshare Data
 This project analyses data of New York City, Chicago and Washington bike share.
 
 ### Files used
-bikeshare.py
 chicago.csv
 new_york_city.csv
 washington.csv
